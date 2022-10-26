@@ -19,7 +19,8 @@ public class JustTests {
     /**
      * 输出到桌面文件夹
      */
-    private static String output = StrUtil.format("{}\\\\{}", FileSystemView.getFileSystemView().getHomeDirectory().getAbsolutePath(), "output");
+//    private static String output = StrUtil.format("{}\\\\{}", FileSystemView.getFileSystemView().getHomeDirectory().getAbsolutePath(), "output");
+    private static String output = StrUtil.format("{}\\\\{}", SystemUtil.getUserInfo().getCurrentDir(), "out");
     /**
      * 指定目录获取模板引擎
      */
