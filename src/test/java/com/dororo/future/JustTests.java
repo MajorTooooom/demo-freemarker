@@ -10,13 +10,14 @@ import cn.hutool.extra.template.TemplateConfig;
 import cn.hutool.extra.template.TemplateEngine;
 import cn.hutool.extra.template.TemplateUtil;
 import cn.hutool.system.SystemUtil;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.filechooser.FileSystemView;
 import java.io.File;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class JustTests {
     //输出到桌面文件夹
@@ -41,9 +42,21 @@ public class JustTests {
             bindingMap.put("number01", 12.34);//测试数值类型
             bindingMap.put("number02", 0.56);//测试数值类型
 
-
             bindingMap.put("strValue", "Aa_Bb_Cc_Dd");//测试字符串
 
+            // 序列类型 （数组、List、Set）
+            // 数组操作
+            String[] stars = new String[]{"周杰伦", "林俊杰", "陈奕迅", "五月天"};
+            bindingMap.put("stars", stars);
+            // List操作
+            List<String> citys = Arrays.asList("上海", "北京", "杭州", "深圳");
+            bindingMap.put("cityList", citys);
+            // JavaBean集合
+            List<User> userList = new ArrayList<>();
+            userList.add(new User(1, "zhangsan", 22));
+            userList.add(new User(2, "lisi", 18));
+            userList.add(new User(3, "wangwu", 20));
+            bindingMap.put("userList", userList);
 
             String ftlName = FileUtil.getName(file);
             Template template = engine.getTemplate(ftlName);
@@ -51,5 +64,15 @@ public class JustTests {
             //执行渲染
             template.render(bindingMap, FileUtil.file(target));
         });
+    }
+
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class User {
+        private int id;
+        private String name;
+        private int age;
     }
 }
