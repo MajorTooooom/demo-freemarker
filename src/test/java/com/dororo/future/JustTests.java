@@ -2,6 +2,7 @@ package com.dororo.future;
 
 
 import cn.hutool.core.collection.ListUtil;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.template.Template;
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import javax.swing.filechooser.FileSystemView;
 import java.io.File;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,6 +35,8 @@ public class JustTests {
             HashMap<String, Object> bindingMap = new HashMap<>();
             bindingMap.put("testBoolean01", true);//测试布尔值
             bindingMap.put("testBoolean02", false);//测试布尔值
+
+            bindingMap.put("datetime", null);//测试日期
 
 
             String ftlName = FileUtil.getName(file);
