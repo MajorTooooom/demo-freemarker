@@ -36,7 +36,10 @@ public class JustTests {
             bindingMap.put("testBoolean01", true);//测试布尔值
             bindingMap.put("testBoolean02", false);//测试布尔值
 
-            bindingMap.put("datetime", null);//测试日期
+            bindingMap.put("datetime", new Date());//测试日期
+
+            bindingMap.put("number01", 12.34);//测试数值类型
+            bindingMap.put("number02", 0.56);//测试数值类型
 
 
             String ftlName = FileUtil.getName(file);
