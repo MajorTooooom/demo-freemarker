@@ -42,6 +42,9 @@ public class JustTests {
             bindingMap.put("number02", 0.56);//测试数值类型
 
 
+            bindingMap.put("strValue", "Aa_Bb_Cc_Dd");//测试字符串
+
+
             String ftlName = FileUtil.getName(file);
             Template template = engine.getTemplate(ftlName);
             String target = output + "\\" + ftlName.replace(".ftl", "");
